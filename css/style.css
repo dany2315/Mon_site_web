@@ -5,6 +5,20 @@
     color:black ;
     font-style: normal;
     box-sizing: border-box;
-   /*text-align: center;*/
+    text-align: center;
     
+}
+body{
+    background-image:url(../assets/image/pexels-asad-photo-maldives-9394652.jpg) ;
+    
+}
+
+.titre{
+
+}
+.exo{
+    background-color: rgba(76, 177, 235, 0.151);
+    border: solid;
+    border-radius: 4px 4px;
+    padding: 3px;
 }
