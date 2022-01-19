@@ -207,6 +207,7 @@ function laCentral() {
     divMain.innerHTML+=toAppend
 
     function createHTML(car,i) {
+
         //var a ="car"
         //var b = i+1
         /*var divCar =document.createElement("div");
@@ -236,11 +237,12 @@ function laCentral() {
         var espace3 = document.createElement("br");
 
         var*/
+        
 
 
 
 
-        toAppend+=`<div id="car${i+1}"  class="if ${car.cathegorie}" >
+        toAppend+=`<div id="car${i}"  class="if ${car.cathegorie}" >
                         <h3 class="cathegorie">${car.cathegorie}</h3>
                         <div class="image"><img src="C:/Users/David/Desktop/webschool/projet-js/assets/image/${car.image}" alt="voiture" ></div>
                         </br>
@@ -250,16 +252,16 @@ function laCentral() {
                         </br>
                         <p class="price">${car.price}</p>
                         </br>
-                        <button class="delete${car} close" onclick="effacer("car",i+1)">x</button></div>`
+                        <button class="delete${car} close" onclick="effacer(this,${i})">x</button></div>`
         
     
 
         
     }
 
-    function effacer(a,b){
-        var div=document.getElementById(`${a+b}`)
-        div.remove()
+    
+    function effacer(btn,x){
+        btn.parentElement.remove();
     }
 
 
@@ -273,6 +275,23 @@ function laCentral() {
 
 
 
+
+
+}
+//14eme boutton
+function name(params) {
+    const ppl =["Tim","Bob","Mike"]
+    ppl.pourChak=function (callBack) {
+        for (let i = 0; i < ppl.length; i++) {
+            const element = ppl[i];
+            callBack(element,i)
+        }
+    }
+    ppl.pourChak(showName)
+    function showName(n,i) {
+        console.log(i+": "+ n);
+        
+    }
 
 
 }
