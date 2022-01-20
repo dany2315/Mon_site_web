@@ -18,12 +18,13 @@ body{
 .titre{
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.exo{
+.btn{
     background-color: rgba(76, 177, 235, 0.473);
     border: solid;
     border-radius: 4px 4px;
     padding: 5px;
     color:  black;
+    display: initial;
 }
 
 .if{
@@ -94,5 +95,40 @@ img{
     right: 15px;
     border-radius: 6px 6px;
     
+}
+.formulaire-add-car{
+    background-color: rgb(76, 177, 235); 
+    display:block;
+    width: 29%;
+    height: 245px;
+    margin: 0px auto;
+    
+
+}
+.input-formulaire{
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+.lbl{
+    color:rgb(100, 237, 152); ;
+}
+
+.input-formulaire{
+     color: black;
+}
+.autre{
+    color: black;
+}
+
+#btn-vendre{
+    background-color: rgba(100, 237, 152, 0.527);
     
 }
+.input-search {
+    transition: width 0.4s ease-in-out;
+  }
+  
+.input-search:focus {
+    width: 100%;
+  }

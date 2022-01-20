@@ -260,24 +260,38 @@ function laCentral() {
     }
 
     
-    function effacer(btn,x){
-        btn.parentElement.remove();
+    function effacer(car,){
+        document.getElementById("car"+car).remove();
     }
 
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
+    
+    
 }
+
+var autreCheckbox=document.getElementById("autre")
+
+    autreCheckbox.addEventListener("click",function(){
+    var autreLabel =document.getElementById("autre-label")
+    autreLabel.style.display="none";
+    autreCheckbox.style.display="none";
+   
+    })
+
+    
+
+    //var labelCathegory =document.createElement("label")
+    //labelCathegory.innerText="nouvelle cathegorie"
+
+    //var inputCathegorie =document.createElement("input")
+    //inputCathegorie.type="text"
+
+
+
+
+
 //14eme boutton
 function name(params) {
     const ppl =["Tim","Bob","Mike"]
