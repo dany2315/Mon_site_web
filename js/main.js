@@ -202,45 +202,11 @@ function laCentral() {
 
     var i =0
     var toAppend =""
-
+    
     cars.forEach(createHTML)
-    divMain.innerHTML+=toAppend
+    divBox.innerHTML+=toAppend
 
     function createHTML(car,i) {
-
-        //var a ="car"
-        //var b = i+1
-        /*var divCar =document.createElement("div");
-        divCar.id=`car${i+1}`;
-        divCar.className=`if ${car.cathegorie}`
-
-        var h3 = document.createElement("h3");
-        h3.className=`cathegorie`;
-        h3.innerText=`${car.cathegorie}`
-
-        var divImage = document.createElement("div");
-        divImage.className="image";
-        divImage.innerText=`<img src="C:/Users/David/Desktop/webschool/projet-js/assets/image/${car.image}" alt="voiture" >`;
-
-        var espace = document.createElement("br");
-        
-        var marque = document.createElement("p");
-        marque.className="marque";
-        marque.innerText=`${car.marqu}`;
-
-        var espace2 = document.createElement("br");
-
-        var model = document.createElement("p");
-        model.className="model";
-        model.innerText=`${car.model}`;
-
-        var espace3 = document.createElement("br");
-
-        var*/
-        
-
-
-
 
         toAppend+=`<div id="car${i}"  class="if ${car.cathegorie}" >
                         <h3 class="cathegorie">${car.cathegorie}</h3>
@@ -252,48 +218,90 @@ function laCentral() {
                         </br>
                         <p class="price">${car.price}</p>
                         </br>
-                        <button class="delete${car} close" onclick="effacer(this,${i})">x</button></div>`
-        
+                        <button class="delete${i} close" oncklick="deleteCar(this)"  >x</button></div>`
+                        
+                        
     
-
+    }
+    
+    function deleteCar(car) {
+        var div =car.parentElement;
+        div.romove()
         
     }
+        
+}
+
+
+    var autreCheckbox=document.getElementById("autre")
+
+    autreCheckbox.addEventListener("click",function(){             //pk j'ai besoin ici de mettre une fonction annonyme pour que sa marche
+       
+        var lblArrCheck = document.querySelectorAll(".cathegorie-car")
+        var inputArrCheck = document.querySelectorAll(".input-cat")
+        lblArrCheck.forEach(displayN) 
+        inputArrCheck.forEach(displayN) 
+            
+        function displayN(car) {
+                car.style.display="none" 
+            }
+
+
+        var inputAutre =document.createElement("input")
+        inputAutre.type="text"
+        inputAutre.placeholder="cathegorie"
+        inputAutre.style.display= "block"
+        inputAutre.style.marginLeft="88px"
+        
+
+        var labelAutre =document.createElement("label")
+        labelAutre.innerHTML="quel est la cathegorie <br> de votre voiture<br>"
+        labelAutre.style.display="block"
+
+        var btnVendre=document.getElementById("btn-vendre")
+        var formulaire=document.querySelector("div")
+        formulaire.style.height="330px"
+       
+       inputAutre=formulaire.insertBefore(inputAutre,btnVendre);
+       labelAutre=formulaire.insertBefore(labelAutre,inputAutre);
+   
+})
+
+
+
+function ajouter() {
+    
+    var inputMarqu =document.getElementById("marqu")
+    var inputmodel =document.getElementById("model")
+    var inputprice =document.getElementById("price")
+    var inputimagefile =document.getElementById("image-file")
+    var inputCheck =document.getElementById("marqu")
+
+    function Car(_marqu, _model, _cathegorie, _price, _image) {
+        this.marqu = _marqu;
+        this.model = _model;
+        this.cathegorie = _cathegorie;
+        this.price = _price;
+        this.image = _image;
+        }
+    
 
     
-    function effacer(car,){
-        document.getElementById("car"+car).remove();
-    }
-
-    
-
-
-    
+    var newcar= {inputMarqu,inputmodel,inputprice,inputimagefile,inputCheck}
     
 }
 
-var autreCheckbox=document.getElementById("autre")
-
-    autreCheckbox.addEventListener("click",function(){
-    var autreLabel =document.getElementById("autre-label")
-    autreLabel.style.display="none";
-    autreCheckbox.style.display="none";
-   
-    })
 
     
 
-    //var labelCathegory =document.createElement("label")
-    //labelCathegory.innerText="nouvelle cathegorie"
-
-    //var inputCathegorie =document.createElement("input")
-    //inputCathegorie.type="text"
+   
 
 
 
 
 
 //14eme boutton
-function name(params) {
+/*function na() {
     const ppl =["Tim","Bob","Mike"]
     ppl.pourChak=function (callBack) {
         for (let i = 0; i < ppl.length; i++) {
@@ -305,7 +313,4 @@ function name(params) {
     function showName(n,i) {
         console.log(i+": "+ n);
         
-    }
-
-
-}
+    */
