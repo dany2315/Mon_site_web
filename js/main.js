@@ -218,16 +218,18 @@ function laCentral() {
                         </br>
                         <p class="price">${car.price}</p>
                         </br>
-                        <button class="delete${i} close" oncklick="deleteCar(this)"  >x</button></div>`
+                        <button class="delete${i} close" >x</button></div>`
                         
                         
     
     }
     
-    function deleteCar(car) {
-        var div =car.parentElement;
-        div.romove()
-        
+   
+        var btn =document.getElementsByClassName("close")
+       
+        btn.addEventListener("click",deleteCar)
+        function deleteCar(btn) {
+            btn.parentElement.remove()
     }
         
 }
@@ -267,16 +269,37 @@ function laCentral() {
    
 })
 
+function checked() {
+        var listCatCheck = [""];
 
+        var inputArrCheck = document.querySelectorAll(".input-cat");
+        inputArrCheck.forEach(checkAdd)
+
+        function checkAdd(i) {
+            addEventListener("change", function () {
+                 
+                    listCatCheck.push(inputArrCheck[i]);
+                
+            });
+
+            
+        }console.log(listCatCheck);
+}
+checked()
 
 function ajouter() {
-    
-    var inputMarqu =document.getElementById("marqu")
-    var inputmodel =document.getElementById("model")
-    var inputprice =document.getElementById("price")
-    var inputimagefile =document.getElementById("image-file")
+
+    var inputMarqu =document.getElementById("marqu").value
+    var inputmodel =document.getElementById("model").value
+    var inputprice =document.getElementById("price").value
+    var inputimagefile =document.getElementById("image-file").value
     var inputCheck =document.getElementById("marqu")
 
+    //if (inputMarqu||inputmodel||inputprice||inputimagefile||inputCheck=) {
+        
+    //}
+    
+    
     function Car(_marqu, _model, _cathegorie, _price, _image) {
         this.marqu = _marqu;
         this.model = _model;
@@ -287,7 +310,7 @@ function ajouter() {
     
 
     
-    var newcar= {inputMarqu,inputmodel,inputprice,inputimagefile,inputCheck}
+    var obj = new Car(inputMarqu,inputmodel,inputprice,inputimagefile,inputCheck)
     
 }
 
