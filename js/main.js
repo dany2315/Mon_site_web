@@ -181,7 +181,7 @@ function laCentral() {
         },
     ]
     var body = document.querySelector("body")
-    var bontonApres=document.getElementById("a")
+    var bontonApres=document.getElementById("timer")
 
 
 
@@ -269,7 +269,7 @@ function laCentral() {
    
 })
 
-function checked() {
+/*function checked() {
         var listCatCheck = [""];
 
         var inputArrCheck = document.querySelectorAll(".input-cat");
@@ -285,7 +285,7 @@ function checked() {
             
         }console.log(listCatCheck);
 }
-checked()
+checked()*/
 
 function ajouter() {
 
@@ -316,6 +316,39 @@ function ajouter() {
 
 
     
+//14eme boutton
+
+var time =document.getElementById("timer")
+time.addEventListener("click",function () {
+
+    const chrono={
+         hr:{val:0 ,DOM:document.getElementById("hr")} ,
+         min:{val:0 ,DOM:document.getElementById("min")} ,
+         sec:{val:0 ,DOM:document.getElementById("sec")} ,
+    }
+
+setInterval(function () {
+    chrono.sec.val++;
+    if (chrono.sec.val<10) {
+        chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
+        
+    
+    }else{
+    chrono.sec.DOM.innerHTML=chrono.sec.val
+    }
+    if (chrono.sec.val=61) {
+        chrono.sec.val=0
+        chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
+    }else{chrono.sec.DOM.innerHTML=chrono.sec.val}
+    
+    
+},1000)
+
+})
+
+
+    
+
 
    
 
