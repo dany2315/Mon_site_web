@@ -324,14 +324,14 @@ time.addEventListener("click",function horloge () {
     const chrono={
          hr:{val:0 ,DOM:document.getElementById("hr")} ,
          min:{val:0 ,DOM:document.getElementById("min")} ,
-         sec:{val:0 ,DOM:document.getElementById("sec")} ,
+         sec:{val: 0, DOM: document.getElementById("sec")},
     }
 
 var seconde=setInterval(function () {
     chrono.sec.val++;
     if (chrono.sec.val<10) {
         chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
-        
+
     
     }else{if (chrono.sec.val==60) {
         chrono.sec.val=0
@@ -367,7 +367,10 @@ var heure = setInterval(function () {
 },3600000)
 
 var pause =document.getElementById("pause")
-pause.addEventListener("click",clearInterval(seconde,minute,heure))
+    pause.addEventListener("click",arret())
+    function arret() {
+        clearInterval(seconde)
+    }
 
 })
 
