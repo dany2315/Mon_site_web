@@ -346,16 +346,11 @@ function interval() {
             }else{chrono.hr.DOM.innerHTML=chrono.hr.val}
             }else{chrono.min.DOM.innerHTML=chrono.min.val}} 
         }else{chrono.sec.DOM.innerHTML=chrono.sec.val}} 
-        
-        
     },1000)
     return seconde
-
 }
-
-
 var pause = document.getElementById("pause")
-pause.addEventListener("click",clearInterval(seconde))
+pause.addEventListener("click",clearInterval())
     
 
   

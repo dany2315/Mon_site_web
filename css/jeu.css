@@ -1,0 +1,63 @@
+* { 
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    color:black ;
+    font-style: normal;
+    box-sizing: border-box;
+    text-align: center;
+    
+    
+}
+body{
+    position: relative;
+    background-image: url(../assets/image/pexels-asad-photo-maldives-9394652.jpg) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+#main{
+    display: flex;
+    justify-content: space-between;
+}
+.case{
+    text-align: center;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background-color: orange;
+    padding: 25px;
+    margin: 0px auto;
+}
+h2{
+    font-weight: bold;
+    border-bottom: orange solid;
+    width: 200px;
+    padding-bottom: 8px;
+    margin: 0px auto;
+    
+    
+}
+h3{
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 23px;
+}
+#message{
+    display: inline-block;
+    
+}
+#regle{
+    color:rgb(255, 166, 0) ;
+}
+#game{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+    background-color: rgba(128, 128, 128, 0.295);
+
+}
