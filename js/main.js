@@ -317,65 +317,56 @@ function ajouter() {
 
     
 //14eme boutton
-
+//var seconde =null
 var time =document.getElementById("timer")
-time.addEventListener("click",function horloge () {
+time.addEventListener("click",interval )
+function interval() {
 
     const chrono={
-         hr:{val:0 ,DOM:document.getElementById("hr")} ,
-         min:{val:0 ,DOM:document.getElementById("min")} ,
-         sec:{val: 0, DOM: document.getElementById("sec")},
+        hr:{val:0 ,DOM:document.getElementById("hr")} ,
+        min:{val:0 ,DOM:document.getElementById("min")} ,
+        sec:{val: 0, DOM: document.getElementById("sec")},
     }
+    var seconde=setInterval(function () {
+        chrono.sec.val++;
+        if (chrono.sec.val<10) {
+            chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
+        }else{if (chrono.sec.val==60) {
+            chrono.sec.val=0
+            chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
+            chrono.min.val++;
+            if (chrono.min.val<10) {
+                chrono.min.DOM.innerHTML="0"+chrono.min.val;
+            }else{if (chrono.min.val==60) {
+                chrono.min.val=0
+                chrono.min.DOM.innerHTML="0"+chrono.min.val;
+                chrono.hr.val++;
+            if (chrono.hr.val<10) {
+                chrono.hr.DOM.innerHTML="0"+chrono.hr.val;      
+            }else{chrono.hr.DOM.innerHTML=chrono.hr.val}
+            }else{chrono.min.DOM.innerHTML=chrono.min.val}} 
+        }else{chrono.sec.DOM.innerHTML=chrono.sec.val}} 
+        
+        
+    },1000)
+    return seconde
 
-var seconde=setInterval(function () {
-    chrono.sec.val++;
-    if (chrono.sec.val<10) {
-        chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
+}
 
-    
-    }else{if (chrono.sec.val==60) {
-        chrono.sec.val=0
-        chrono.sec.DOM.innerHTML="0"+chrono.sec.val;
-    }else{chrono.sec.DOM.innerHTML=chrono.sec.val}} 
-    
-    
-},1000)
 
-var minute= setInterval(function () {
-    chrono.min.val++;
-    if (chrono.min.val<10) {
-        chrono.min.DOM.innerHTML="0"+chrono.min.val;
+var pause = document.getElementById("pause")
+pause.addEventListener("click",clearInterval(seconde))
+    
+
+  
+
+
+
+
+
+ 
         
     
-    }else{if (chrono.min.val==60) {
-        chrono.min.val=0
-        chrono.min.DOM.innerHTML="0"+chrono.min.val;
-    }else{chrono.min.DOM.innerHTML=chrono.min.val}} 
-    
-    
-},60000)
-
-var heure = setInterval(function () {
-    chrono.hr.val++;
-    if (chrono.hr.val<10) {
-        chrono.hr.DOM.innerHTML="0"+chrono.hr.val;
-        
-    
-    }else{chrono.hr.DOM.innerHTML=chrono.hr.val}
-    
-    
-},3600000)
-
-var pause =document.getElementById("pause")
-    pause.addEventListener("click",arret())
-    function arret() {
-        clearInterval(seconde)
-    }
-
-})
-
-
-
 
 
 
