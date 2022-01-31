@@ -141,45 +141,46 @@ function inversNum() {
 
 //13eme boutton
 
+var cars =[
+    {   id:"1",
+        marqu :"FERRARI",
+        model :"F8",
+        cathegorie:["SPORT"],
+        price:"400 000 €",
+    },
+    {   
+        id: "2",
+        marqu:"TESLA",
+        model:["model X"],
+        cathegorie:"FAMILLE",
+        price:"100 000 €",
+
+    },
+    {
+        id:"3",
+        marqu:"MERCEDES BENZ",
+        model:"viano",
+        cathegorie:["BUISSNES","FAMILLE"],
+        price:"70 000 €",
+    },
+    {
+        id:"4",
+        marqu:"ROLL ROYCE",
+        model:"cullinan",
+        cathegorie:["LUXE"],
+        price:"500 000 €",
+    },
+    {
+        id:"5",
+        marqu:"JAGUAR",
+        model:"XJ50",
+        cathegorie:["LUXE"],
+        price:"80 000 €",
+    },
+]
 function laCentral() {
 
-    var cars =[
-        {  
-            marqu :"FERRARI",
-            model :"F8",
-            cathegorie:["SPORT"],
-            price:"400 000 €",
-            image:"ferrari.jpg",
-        },
-        {   
-            marqu:"TESLA",
-            model:["model X"],
-            cathegorie:"FAMILLE",
-            price:"100 000 €",
-            image:"tesla.jpg",
-        },
-        {
-            marqu:"MERCEDES BENZ",
-            model:"viano",
-            cathegorie:["BUISSNES","FAMILLE"],
-            price:"70 000 €",
-            image:"mercedes_benz_viano.jpg",
-        },
-        {
-            marqu:"ROLL ROYCE",
-            model:"cullinan",
-            cathegorie:["LUXE"],
-            price:"500 000 €",
-            image:"roll_royce.jpg",
-        },
-        {
-            marqu:"JAGUAR",
-            model:"XJ50",
-            cathegorie:["LUXE"],
-            price:"80 000 €",
-            image:"jaguar.jpg",
-        },
-    ]
+    
     var body = document.querySelector("body")
     var bontonApres=document.getElementById("timer")
 
@@ -205,33 +206,39 @@ function laCentral() {
     
     cars.forEach(createHTML)
     divBox.innerHTML+=toAppend
+}
 
-    function createHTML(car,i) {
+function createHTML(car,i) {
 
-        toAppend+=`<div id="car${i}"  class="if ${car.cathegorie}" >
+        toAppend+=`<div id="car${car.id}"  class="if ${car.cathegorie}" >
                         <h3 class="cathegorie">${car.cathegorie}</h3>
-                        <div class="image"><img src="C:/Users/David/Desktop/webschool/projet-js/assets/image/${car.image}" alt="voiture" ></div>
                         </br>
                         <p class="marque">${car.marqu}</p>  
                         </br>
                         <p class="model">${car.model}</p>
+                     
                         </br>
                         <p class="price">${car.price}</p>
                         </br>
-                        <button class="delete${i} close" >x</button></div>`
+                        <button id="delete" class="close" onclick="deleteCar(this,'${car.id}')">x</button></div>`
                         
-                        
-    
-    }
-    
-   
-        var btn =document.getElementsByClassName("close")
-       
-        btn.addEventListener("click",deleteCar)
-        function deleteCar(btn) {
-            btn.parentElement.remove()
+                                    
     }
         
+
+function deleteCar(btn,x) {
+    btn.parentElement.remove();
+    for (let i = 0; i < cars.length; i++) {
+        const car = cars[i];
+        if (car.id==x) {
+          cars.splice(i,1)  
+          console.log(cars)
+          break
+        }
+        
+    }
+    
+    
 }
 
 
