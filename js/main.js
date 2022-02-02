@@ -178,26 +178,32 @@ var cars =[
         price:"80 000 €",
     },
 ]
+var divBarre = document.createElement("div")
+divBarre.id="barre"
+
+var divBox = document.createElement("div")
+divBox.id="box"
+
+var divMain = document.createElement("div")
+divMain.id="main"
+
+
 function laCentral() {
 
     
     var body = document.querySelector("body")
     var bontonApres=document.getElementById("timer")
 
+    
 
-
-    var divBarre = document.createElement("div")
-    divBarre.id="barre"
     divBarre = body.insertBefore(divBarre,bontonApres);     //divBarre = je l'insere dans le body (divBarre je l'insere devant bouttonApres)
     //b.appendChild(divBarre)
 
-    var divBox = document.createElement("div")
-    divBox.id="box"
+    
     divBox = body.insertBefore(divBox, divBarre);
     //b.appendChild(divBox)
 
-    var divMain = document.createElement("div")
-    divMain.id="main"
+    
     divMain = body.insertBefore(divMain,divBox );      
     //b.appendChild(divMain)
 
@@ -205,12 +211,13 @@ function laCentral() {
     var toAppend =""
     
     cars.forEach(createHTML)
-    divBox.innerHTML+=toAppend
+    
 }
 
 function createHTML(car,i) {
 
-        toAppend+=`<div id="car${car.id}"  class="if ${car.cathegorie}" >
+        toAppend+=`<div id="car${car.plate
+}"  class="if ${car.cathegorie}" >
                         <h3 class="cathegorie">${car.cathegorie}</h3>
                         </br>
                         <p class="marque">${car.marqu}</p>  
@@ -220,8 +227,9 @@ function createHTML(car,i) {
                         </br>
                         <p class="price">${car.price}</p>
                         </br>
-                        <button id="delete" class="close" onclick="deleteCar(this,'${car.id}')">x</button></div>`
-                        
+                        <button id="delete" class="close" onclick="deleteCar(this,'${car.plate}')">x</button></div>`
+              
+        divBox.innerHTML+=toAppend      
                                     
     }
         
@@ -230,7 +238,7 @@ function deleteCar(btn,x) {
     btn.parentElement.remove();
     for (let i = 0; i < cars.length; i++) {
         const car = cars[i];
-        if (car.id==x) {
+        if (car.plate==x) {
           cars.splice(i,1)  
           console.log(cars)
           break
@@ -276,49 +284,39 @@ function deleteCar(btn,x) {
    
 })
 
-/*function checked() {
-        var listCatCheck = [""];
+var listCatCheck = [];
 
-        var inputArrCheck = document.querySelectorAll(".input-cat");
-        inputArrCheck.forEach(checkAdd)
 
-        function checkAdd(i) {
-            addEventListener("change", function () {
-                 
-                    listCatCheck.push(inputArrCheck[i]);
-                
-            });
+var inputMarqu =document.getElementById("marqu")
+var inputmodel =document.getElementById("model")
+var inputprice =document.getElementById("price")
+var inputimagefile =document.getElementById("image-file")
+var inputPlate = document.getElementById("plate")
 
-            
-        }console.log(listCatCheck);
+class Car{
+    constructor(_plate,_marqu, _model, _cathegorie, _price, _image) {
+    this.plate = _plate
+    this.marqu = _marqu;
+    this.model = _model;
+    this.cathegorie = _cathegorie;
+    this.price = _price;
+    this.image = _image;
+    }
 }
-checked()*/
-
+function checkAdd () {
+    var inputArrCheck = document.querySelectorAll(".cat");
+    inputArrCheck.forEach(function (check) {
+    check.addEventListener("change", function () {
+            listCatCheck.push(check.value);
+            })
+        })
+}
 function ajouter() {
-
-    var inputMarqu =document.getElementById("marqu").value
-    var inputmodel =document.getElementById("model").value
-    var inputprice =document.getElementById("price").value
-    var inputimagefile =document.getElementById("image-file").value
-    var inputCheck =document.getElementById("marqu")
-
-    //if (inputMarqu||inputmodel||inputprice||inputimagefile||inputCheck=) {
-        
-    //}
-    
-    
-    function Car(_marqu, _model, _cathegorie, _price, _image) {
-        this.marqu = _marqu;
-        this.model = _model;
-        this.cathegorie = _cathegorie;
-        this.price = _price;
-        this.image = _image;
-        }
-    
-
-    
-    var obj = new Car(inputMarqu,inputmodel,inputprice,inputimagefile,inputCheck)
-    
+    checkAdd()
+    var Mylist= listCatCheck.join(", ")
+    var obj = new Car(inputPlate.value,inputMarqu.value,inputmodel.value,Mylist,inputprice.value,inputimagefile.value)
+    cars.push(obj)
+    createHTML(obj)    
 }
 
 
