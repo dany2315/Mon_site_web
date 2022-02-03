@@ -136,3 +136,66 @@ a{
       text-decoration: none;
 }
 
+#cathegorie-box{
+    display: flex;
+    width: auto;
+    margin: 0px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media screen and (max-width: 1261px) {
+    .formulaire-add-car {
+        height: 402px
+    }
+}
+
+@media screen and (max-width: 913px) {
+    .formulaire-add-car {
+        height: 422px
+    }
+}
+
+@media screen and (max-width: 807px) {
+    .formulaire-add-car {
+        height: 462px
+    }
+}
+
+@media screen and (max-width: 743px) {
+    .formulaire-add-car {
+        height: 360px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 457px) {
+    .formulaire-add-car {
+        height: 400px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 304px) {
+    .formulaire-add-car {
+        height: 420px;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    .formulaire-add-car {
+        height: 490px;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 220px) {
+    .formulaire-add-car {
+        height: 510px;
+        width: 80%;
+    }
+}
