@@ -362,10 +362,14 @@ pause.addEventListener("click",clearInterval())
 
 
 
-
-
- 
-        
+/*const player=[
+    {name:"david",score:43},
+    {name:"david",score:63},
+    {name:"david",score:83},
+    {name:"david",score:23}
+]
+player.sort((a,b) => b.score -a.score)
+        console.log(player);*/
     
 
 
